@@ -203,7 +203,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
 // Set the request headers
 $headers = [
-    'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MzcxZDk5My03OGY3LTRjMGYtYmE4Yi1kMjQwYTc4ODM4YmYiLCJpYXQiOjE3MjczMDY3NDAsImV4cCI6MTcyNzMwODU0MH0.88gFN2cdOZWRdUaLThwmOu488L9h6-eXMCpBhNyHP10',
+    'Authorization: bearer '.$token.'',
     'Content-Type: application/json',
     'Accept: */*',
     'User-Agent: Mozilla/5.0 (Linux; Android 9; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
@@ -242,7 +242,7 @@ if ($response === false) {
     
             // Set the request headers
             $headers = [
-                'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MzcxZDk5My03OGY3LTRjMGYtYmE4Yi1kMjQwYTc4ODM4YmYiLCJpYXQiOjE3MjczMDY3NDAsImV4cCI6MTcyNzMwODU0MH0.88gFN2cdOZWRdUaLThwmOu488L9h6-eXMCpBhNyHP10',
+                'Authorization: bearer '.$token.'',
                 'Content-Type: application/json',
                 'Accept: */*',
                 'User-Agent: Mozilla/5.0 (Linux; Android 9; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
@@ -288,7 +288,7 @@ if ($response === false) {
     
             // Set the request headers
             $headers = [
-                'Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4MzcxZDk5My03OGY3LTRjMGYtYmE4Yi1kMjQwYTc4ODM4YmYiLCJpYXQiOjE3MjczMDY3NDAsImV4cCI6MTcyNzMwODU0MH0.88gFN2cdOZWRdUaLThwmOu488L9h6-eXMCpBhNyHP10',
+                'Authorization: bearer '.$token.'',
                 'Content-Type: application/json',
                 'Accept: */*',
                 'User-Agent: Mozilla/5.0 (Linux; Android 9; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
