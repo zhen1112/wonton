@@ -499,7 +499,7 @@ if ($response === false) {
                 echo 'Gagal Menyelesaikan Game' . "\n"; // Print an error message with the code
             }
         }
-        sleep(2);
+        sleep(5);
         // Close cURL session
         curl_close($ch);
         
@@ -512,6 +512,31 @@ if ($response === false) {
 // Close cURL session
 curl_close($ch);
 }
+$url = "https://wonton.food/api/v1/task/claim-progress";
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Authorization: bearer '.$token.'',
+    'Content-Type: application/json',
+    'X-Tag: t7+1rvu2272(p)d.(_3m73?@?0_;k0o8>$k549yfs3vz<7g(t4fgkt@_a0zi'
+]);
+
+$response = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+} else {
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($httpCode === 200) {
+    $data = json_decode($response, true);
+    print_r($data); // Output the response data
+    }else{
+        "GAGAL AMBIL PACK\n";
+    }
+}
+
+curl_close($ch);
+
 }
 
 
