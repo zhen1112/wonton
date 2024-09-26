@@ -505,6 +505,7 @@ if ($response === false) {
         
     } else {
         echo "Gagal Start Game: $httpCode\n"; 
+        sleep(2);
     }
 }
 }
