@@ -368,16 +368,41 @@ if ($response === false) {
     echo 'Curl error: ' . curl_error($ch);
 } else {
     $data = json_decode($response, true);
-    $statusFarm = $data['claimed'];
-    $finishAt = $data['finishAt'];
-    $startAt = $data['startAt'];
+    $statusFarm = $data['claimed'] ?? false;;
+    $finishAt = $data['finishAt'] ?? null;
+    $startAt = $data['startAt'] ?? null;
     echo "Start Farming At: $startAt\n";
     echo "status farming $finishAt\n";
-    if($statusFarm === 'true'){
+    if(isset($statusFarm) === 'true'){
         ///////LOGIKA UNTUK CLAIM FARMING
         echo "Trying To Claim Farm..\n";
     }else{
-        echo "Claim Not Available\n";
+        echo "Claim Not Available/Not Yet start\n";
+        $url = 'https://wonton.food/api/v1/user/start-farming';
+
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: bearer ' . $token,
+            'Content-Type: application/json',
+            'Accept: */*',
+            'X-Tag: 8<[1$64.872q[pw>t[&/73i8+mz)#0>8~!c43zjed0*e&8qlk5.0]!b>314b'
+        ]);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([])); // Sending empty JSON body
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo 'Curl error: ' . curl_error($ch);
+        } else {
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            echo 'Start Response: ' . $httpCode . "\n";
+        }
+
+        curl_close($ch);
     }
 }
 
