@@ -6,6 +6,7 @@ echo "Want to Buy All Kind Shop?(y/n):";
 $autobuyShop = trim(fgets(STDIN));
 echo "Want to clear all task?(y/n):";
 $claimer = trim(fgets(STDIN));
+while(true){
 foreach($query as $index => $queries){
 $url = "https://wonton.food/api/v1/user/auth";
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -491,4 +492,7 @@ curl_close($ch);
 
 curl_close($ch);
 echo "====================================================\n";
+}
+echo "SUCCES RUN ALL ACCOUNT SLEEP 1 HOURS\n";
+sleep(3600);
 }
